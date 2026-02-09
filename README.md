@@ -18,15 +18,19 @@ A full-stack solar quotation platform with Django backend API and React + TypeSc
 ### Setup
 
 ```bash
-cd backend
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
+
+## Create a superuser for the admin access
+python manage.py createsuperuser
+
+## run the development server
 python manage.py runserver
 
-## The app should now be running in development mode, typically accessible at
-http://localhost:8000/
+## The admin app page should now be running in development mode, typically accessible at
+http://localhost:8000/admin
 
 ## API Endpoints
 
