@@ -8,6 +8,11 @@ A full-stack solar quotation platform with Django backend API and React + TypeSc
 
 ## Backend
 
+## **Features**
+
+- **Quote Dashboard**: Admin-only dashboard to view all submitted quotes.
+- **API**: Backend API to handle quote submissions and retrievals.
+
 ### Requirements
 
 - Python 3.14
@@ -57,9 +62,23 @@ source venv/bin/activate
 python manage.py test quotes
 ```
 
-##Running with Docker
+Test API for all quotes as admin:
 
-###Build images
+```bash
+curl -H "Authorization: Token <token-generated-from-admin>" http://127.0.0.1:8000/api/dashboard/quotes/
+```
+
+Test API for get all the quotes by same email:
+
+```bash
+curl -G "http://127.0.0.1:8000/api/quotes/by-email/" \
+  --data-urlencode "email=emai@email.com" \
+  -H "Content-Type: application/json"
+```
+
+## Running with Docker
+
+### Build images
 
 ```bash
 docker build -t solar-backend .
