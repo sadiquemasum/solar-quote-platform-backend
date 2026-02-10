@@ -39,13 +39,34 @@ http://localhost:8000/admin
 - Description: Create a new quote.
 
 ### Dashboard Quotes
-**GET** `/api/quotes/dashboard/`
+**GET** `/api/dashboard/quotes/`
 - Description: Retrieve quotes for the authenticated user's dashboard.
 - Authentication: Required
 
 ### Public Quotes by Email
-**GET** `/api/quotes/public/?email=<email>`
+**GET** `/api/quotes/by-email/?email=<email>`
 - Description: Retrieve public quotes associated with a specific email.
 - Parameters:
   - `email` (query) – Email address to filter public quotes.
+```
+
+### Backend tests
+
+```bash
+source venv/bin/activate
+python manage.py test quotes
+```
+
+##Running with Docker
+
+###Build images
+
+```bash
+docker build -t solar-backend .
+```
+
+### Run containers
+
+```bash
+docker run -p 8000:8000 solar-backend
 ```
